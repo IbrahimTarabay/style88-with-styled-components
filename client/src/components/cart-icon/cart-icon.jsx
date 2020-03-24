@@ -5,17 +5,13 @@ import { createStructuredSelector } from 'reselect';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
  
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
- /*This is a new special syntax when importing SVG in React.
- The ReactComponent import name is special and tells Create React App
- that you want a React component that renders an SVG, rather than its filename.*/
-import './cart-icon.scss';
+import {CartContainer,ShoppingIcon,ItemCountContainer} from './cart-icon.styles';
 
 const CartIcon = ({toggleCartHidden,itemCount}) =>(
-  <div className='cart-icon' onClick={toggleCartHidden}>
-    <ShoppingIcon className='shopping-icon' />
-    <span className='item-count'>{itemCount}</span>
-  </div>
+  <CartContainer onClick={toggleCartHidden}>
+    <ShoppingIcon />
+    <ItemCountContainer>{itemCount}</ItemCountContainer>
+  </CartContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

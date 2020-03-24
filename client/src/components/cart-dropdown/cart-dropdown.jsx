@@ -3,38 +3,39 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
 
-import CustomButton from '../custom-button/custom-button';
 import CartItem from '../cart-item/cart-item';
 
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { toggleCartHidden } from '../../redux/cart/cart.actions.js';
 
-import './cart-dropdown.scss';
+import {CartDropdownContainer,ImgContainer,EmptyMessageContainer,
+        Img,CartItemsContainer,CartDropdownButton}
+  from './cart-dropdown.styles';
 
 import shopping from '../../assets/shopping.png';
 
 const CartDropdown = ({cartItems,history,dispatch}) =>(
-  <div className='cart-dropdown'>
-    <div className='cart-items'>
+  <CartDropdownContainer>
+    <CartItemsContainer>
       {
         cartItems.length ? 
         cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)
         :
-        <div className='container'>
-         <span className='empty-message'>Your cart is empty</span>
-         <img className='img' alt="shopping-cart" src={shopping}/> 
-        </div>
+        <ImgContainer>
+         <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+         <Img alt="shopping-cart" src={shopping}/> 
+        </ImgContainer>
       }
-    </div>
-    <CustomButton onClick={() => {
+    </CartItemsContainer>
+    <CartDropdownButton onClick={() => {
       history.push('/checkout');
       dispatch(toggleCartHidden());
      }}>
       GO TO CHECKOUT
-      </CustomButton>
+      </CartDropdownButton>
       {/*you can use Link, no problem,the reason we use history is because CustomButton is not Link
         you of course can change the base component of CustomButton to Link*/}
-   </div>
+   </CartDropdownContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
