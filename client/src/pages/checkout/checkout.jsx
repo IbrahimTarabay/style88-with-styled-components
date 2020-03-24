@@ -7,48 +7,50 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button';
 
 import {selectCartItems, selectCartTotal} from '../../redux/cart/cart.selectors';
 
-import './checkout.scss';
+import {CheckoutPageContainer,CheckoutHeaderContainer,
+        HeaderBlockContainer,TotalContainer,WarningContainer}
+  from './checkout.styles';
 
 const CheckoutPage = ({cartItems,total}) => (
-  <div className='checkout-page'>
-    <div className='checkout-header'>
+  <CheckoutPageContainer>
+    <CheckoutHeaderContainer>
 
-      <div className='header-block'>
+      <HeaderBlockContainer>
         <span>Product</span>
-     </div>
+     </HeaderBlockContainer>
 
-     <div className='header-block'>
+     <HeaderBlockContainer>
         <span>Description</span>
-     </div>
+     </HeaderBlockContainer>
 
-     <div className='header-block'>
+     <HeaderBlockContainer>
         <span>Quantity</span>
-     </div>
+     </HeaderBlockContainer>
 
-     <div className='header-block'>
+     <HeaderBlockContainer>
         <span>Price</span>
-     </div>
+     </HeaderBlockContainer>
 
-     <div className='header-block'>
+     <HeaderBlockContainer>
         <span>Remove</span>
-     </div>
-    </div>
+     </HeaderBlockContainer>
+    </CheckoutHeaderContainer>
     {
       cartItems.map(cartItem =>
          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       )
     }{/*we pass quantity here because we want update it every time quantity change
     so we have here in this file selectCartItems that give us the new state everytime quantity change*/}
-    <div className='total'>
+    <TotalContainer>
       <span>TOTAL: ${total}</span>
-    </div>
-    <div className='test-warning'>
+    </TotalContainer>
+    <WarningContainer>
       *Please use the following test credit card for payments*
       <br />
       4242 4242 4242 4242 - Exp: 08/20 - CVV: 123
-    </div>
+    </WarningContainer>
     <StripeCheckoutButton price={total} />
-  </div>
+  </CheckoutPageContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

@@ -6,7 +6,10 @@ import CollectionItem from '../../components/collection-item/collection-item';
 
 import {selectCollection} from '../../redux/shop/shop.selectors';
 
-import './collection.scss';
+import {CollectionItemsContainer,CollectionPageContainer,
+        SearchContainer,CollectionTitle} 
+from './collection.styles';
+
 import { Component } from 'react';
 
 class CollectionPage extends Component{
@@ -31,20 +34,20 @@ render(){
     return item.name.toLowerCase().includes(this.state.searchfield.toLowerCase())});
   
  return(
-  <div className='collection-page'>
-    <h2 className='title'>{title}</h2>
-      <div className='search'>
+  <CollectionPageContainer>
+    <CollectionTitle>{title}</CollectionTitle>
+      <SearchContainer>
       <ReactSearchBox
           placeholder={`search ${title}`}
           onChange={this.onChangeSearch}   
           />
-      </div>
-    <div className='items'>
+      </SearchContainer>
+    <CollectionItemsContainer>
        {
         filteredItems.map(item => <CollectionItem key={item.id} item={item} />)
        }
-    </div>
-  </div>
+    </CollectionItemsContainer>
+  </CollectionPageContainer>
   )
  }
 };
