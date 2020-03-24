@@ -1,0 +1,14 @@
+body{
+  font-family: 'Yeon Sung';
+  padding: 20px 60px;
+  font-size: large;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+*{
+  box-sizing: border-box;/*to make buttons align with form*/
+}
