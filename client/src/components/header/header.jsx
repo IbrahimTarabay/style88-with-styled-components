@@ -11,34 +11,35 @@ import {signOutStart} from '../../redux/user/user.actions';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 
-import './header.scss';
+import {HeaderContainer,LogoContainer,Img,OptionsContainer,OptionLink}
+ from './header.styles';
 
 import style88 from '../../assets/style88.png';
 
 const Header = ({currentUser,hidden,signOutStart}) =>(
-    <div className='header'>
-      <Link className='logo-container' to="/">
-       <img alt="style88" src={style88} style={{ height:100, width: 110 }} />
-      </Link>
-      <div className='options'>
-          <Link className='option' to='/shop'>
+    <HeaderContainer>
+      <LogoContainer to="/">
+       <Img alt="style88" src={style88} />
+      </LogoContainer>
+      <OptionsContainer>
+          <OptionLink to='/shop'>
               SHOP
-          </Link>
-          <Link className='option' to='/shop'>
+          </OptionLink>
+          <OptionLink to='/shop'>
               CONTACT
-          </Link>
+          </OptionLink>
           {
             currentUser ?
-            <div className='option' onClick={signOutStart}>SIGN OUT</div>
+            <OptionLink as='div' onClick={signOutStart}>SIGN OUT</OptionLink>
             :
-            <Link className='option' to='/signin'>SIGN IN</Link>
+            <OptionLink to='/signin'>SIGN IN</OptionLink>
           }
           <CartIcon />
-        </div>
+        </OptionsContainer>
         {hidden ? null : <CartDropdown />}
         {/*we move the functionality of the CartDropdown
         outside the header component and put it inside of global redux state*/}
-      </div>
+      </HeaderContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

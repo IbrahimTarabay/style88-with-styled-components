@@ -1,6 +1,14 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 /*higher order component to avoid prop drilling*/ 
+import {
+  MenuItemContainer,
+  BackgroundImageContainer,
+  ContentContainer,
+  ContentTitle,
+  ContentSubtitle
+} from './menu-item.styles';
+
 import './menu-item.scss';
 
 const MenuItem = ({title,imageUrl,size,history,match,linkUrl}) =>{
