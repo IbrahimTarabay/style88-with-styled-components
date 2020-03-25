@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.css';
+import {GlobalStyle} from './global.styles';
 
 import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
@@ -33,6 +33,7 @@ class App extends React.Component {
     const {currentUser} = this.props;
     return (
       <div>
+        <GlobalStyle />
         <Header />
         {/*header out of the switch because we want it to display in all pages*/}
         {/*we pass currentUser to make header aware of user sign in or sign out*/}

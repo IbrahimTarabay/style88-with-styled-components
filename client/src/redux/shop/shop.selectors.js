@@ -7,11 +7,6 @@ export const selectCollections = createSelector(
   shop => shop.collections
 );
 
-export const selectSearchField = createSelector(
-  [selectShop],
-  shop => shop.searchfield
-)
-
 export const selectCollectionsForPreview =createSelector(
  [selectCollections],
  collections => collections ? Object.keys(collections).map(key => collections[key]) : []
