@@ -7,7 +7,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  background-color: red;
 
   @media screen and (max-width: 800px){
     height: 60px;
@@ -18,10 +17,8 @@ export const HeaderContainer = styled.div`
 
 export const LogoContainer = styled(Link)`
   height: 100%;
-  background-color: blue;
-  width: 70px;
+  width: 50px;
   
-
   @media screen and (max-width: 800px){
     .logo {
       width: 85px;
@@ -51,6 +48,9 @@ export const OptionsContainer = styled.div`
   @media screen and (max-width: 800px){
     width: 80%;
     margin-top: 30px;
+  }
+  @media screen and (max-width: 350px){
+    margin-left: 20px;
   }
 `;
 

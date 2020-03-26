@@ -5,12 +5,12 @@ export const CheckoutItemContainer = styled.div`
   display: flex;
   min-height: 100px;
   border-bottom: 1px solid darkgrey;
-  padding: 15px 0;
+  padding: 15px 0px;
   font-size: 20px;
   align-items: center;
 
   @media screen and (max-width: 800px){
-    font-size: 18px;
+    font-size: 13px;
   }
 `;
 
@@ -29,6 +29,12 @@ export const TextContainer = styled.span`
 
   @media screen and (max-width: 800px){
     width: 22%;
+    font-size:15px;
+  }
+
+  @media screen and (max-width: 370px){
+    width: 22%;
+    font-size:11px;
   }
 `;
 
