@@ -8,6 +8,7 @@ import {GlobalStyle} from './global.styles';
 
 import Header from './components/header/header';
 import Spinner from './components/spinner/spinner';
+import ErrorBoundary from './components/error-boundary/error-boundary';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import {checkUserSession} from './redux/user/user.actions';
@@ -42,6 +43,7 @@ class App extends React.Component {
         {/*The exact param disables the partial matching for a route and makes sure
          that it only returns the route if the path is an EXACT match to the current url*/}
         <Switch>{/*it allows for nested routes to work properly*/} 
+        <ErrorBoundary>
         <Suspense fallback={<Spinner />}>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
@@ -56,7 +58,8 @@ class App extends React.Component {
             {/*render is js invocation that determines what component to return
             so it's in the same place of component but instead it will be some js*/}
           </Suspense>
-          {/*allows you to wrap any part of your application that might be rendering asynchronous components*/}
+          </ErrorBoundary>
+          {/*Suspense allows you to wrap any part of your application that might be rendering asynchronous components*/}
         </Switch>
       </div>
     );
