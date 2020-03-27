@@ -12,6 +12,7 @@ export const HeaderContainer = styled.div`
     height: 60px;
     padding: 10px;
     margin-bottom: 20px;
+    margin-left: -11px;
   }
 `;
 
@@ -21,7 +22,7 @@ export const LogoContainer = styled(Link)`
   
   @media screen and (max-width: 800px){
     .logo {
-      width: 85px;
+      width: 65px;
       height: 20;
       padding-bottom:20px;
       position: relative;
@@ -30,7 +31,7 @@ export const LogoContainer = styled(Link)`
 
   @media screen and (max-width: 370px){
   .logo {
-      width: 73px;
+      width: 53px;
       height: 10;
       padding-bottom:20px;
       position: relative;
@@ -50,7 +51,7 @@ export const OptionsContainer = styled.div`
     margin-top: 30px;
   }
   @media screen and (max-width: 350px){
-    margin-left: 20px;
+    margin-left: 25px;
   }
 `;
 
