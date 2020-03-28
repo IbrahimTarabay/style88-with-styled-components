@@ -6,6 +6,7 @@ const path = require('path');
 /*bundled in any node project
 it's native module,it allows us to dynamically build
  when we call it from our current directory to where we're actually trying to go*/
+const compression = require('compression');
 if(process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -15,6 +16,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 5000;
 /*when you deploy to heroku,it sets up the process PORT for you*/
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 /*to make sure that url doesn't contain spaces,symbols*/
