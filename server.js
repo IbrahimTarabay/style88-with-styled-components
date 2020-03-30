@@ -24,6 +24,7 @@ app.use(cors());
 /*Cross-origin resource sharing, to make it possible
 to make port-3000 of client to communicate to port-5000 of server*/
 if(process.env.NODE_ENV == 'production'){
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname,'client/build')));
   /*to serve static files*/
   /*__dirname is part of node.js which tells us what directory we're currently in*/
