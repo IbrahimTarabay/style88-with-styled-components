@@ -17,7 +17,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 5000;
 /*when you deploy to heroku,it sets up the process PORT for you*/
-app.use(compression());
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 /*to make sure that url doesn't contain spaces,symbols*/
@@ -25,6 +25,7 @@ app.use(cors());
 /*Cross-origin resource sharing, to make it possible
 to make port-3000 of client to communicate to port-5000 of server*/
 if(process.env.NODE_ENV == 'production'){
+  app.use(compression());
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname,'client/build')));
   /*to serve static files*/
