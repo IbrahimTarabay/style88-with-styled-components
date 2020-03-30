@@ -6,6 +6,8 @@ import './index.css';
 
 import App from './App';
 
+import * as serviceWorker from './serviceWorker';
+
 import {PersistGate} from 'redux-persist/integration/react';
 
 import {Provider} from 'react-redux';/*to use redux*/
@@ -22,3 +24,5 @@ ReactDOM.render(
     </BrowserRouter>
    </Provider>,
  document.getElementById('root'));
+
+ serviceWorker.register();
