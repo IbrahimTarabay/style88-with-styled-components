@@ -1,6 +1,7 @@
 /*express is just a library that
 allows us to build an API server easily*/
 const express = require('express');
+const enforce = require('express-sslify');
 const cors = require('cors');
 const path = require('path');
 /*bundled in any node project
