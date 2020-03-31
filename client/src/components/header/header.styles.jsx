@@ -24,6 +24,7 @@ export const LogoContainer = styled(Link)`
     .logo {
       width: 65px;
       height: 20;
+      margin-left: -11px;
       padding-bottom:20px;
       position: relative;
    }
@@ -49,9 +50,10 @@ export const OptionsContainer = styled.div`
   @media screen and (max-width: 800px){
     width: 80%;
     margin-top: 30px;
+    margin-left: 31px;
   }
   @media screen and (max-width: 350px){
-    margin-left: 25px;
+    margin-left: 30px;
   }
 `;
 
@@ -66,6 +68,6 @@ export const OptionLink = styled(Link)`
    @media screen and (max-width: 370px){
     width: 80%;
     margin-top: 30px;
-    font-size: 15px;
+    font-size: 14px;
   }
 `;

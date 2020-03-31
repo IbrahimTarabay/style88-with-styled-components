@@ -29,7 +29,7 @@ const Header = ({currentUser,hidden,signOutStart}) =>(
           </OptionLink>
           {
             currentUser ?
-            <OptionLink as='div' onClick={signOutStart}>SIGN OUT</OptionLink>
+            <OptionLink as='div' onClick={signOutStart}>SIGN_OUT</OptionLink>
             :
             <OptionLink to='/signin'>SIGN_IN</OptionLink>
           }
