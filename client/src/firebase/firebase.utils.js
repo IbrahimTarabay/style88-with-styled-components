@@ -22,7 +22,7 @@ const config = {
      if(!snapShot.exists){/*if user didn't exist in database*/ 
        const {displayName,email} = userAuth;
        const createdAt = new Date();
-
+       
        try{/*create a new user object in Database*/ 
          await userRef.set({
            displayName,
@@ -35,7 +35,21 @@ const config = {
        }
      }
      return userRef;
-  }
+  };
+
+  export const getUserCartRef = async userId => {
+    firestore.collection('carts').doc('userId');
+    const cartsRef = firestore.collection('carts').where('userId','==',userId);
+    const snapShot = await cartsRef.get();
+
+    if(snapShot.empty){
+      const cartDocRef = firestore.collection('carts').doc(userId);
+      await cartDocRef.set({userId,cartItems: []});
+      return cartDocRef;
+    }else{
+      return snapShot.docs[0].ref;
+    }
+  };
 
   export const convertCollectionsSnapshotToMap = (collections) => {
     const transformedCollection = collections.docs.map(doc => {

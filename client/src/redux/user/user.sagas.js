@@ -36,11 +36,12 @@ export function* signInWithGoogle(){
 export function* signInWithEmail({payload: {email,password}}){
   /*here we're get our user credentials from sign-in component passing through as action.payload so
     we destructre payload*/
-  try{
+  try{ 
    const {user} = yield auth.signInWithEmailAndPassword(email,password);
    yield getSnapshotFromUserAuth(user);
   }catch(error){
     yield put(signInFailure(error));
+    alert('Wrong Credentials');
   }
 }
 
