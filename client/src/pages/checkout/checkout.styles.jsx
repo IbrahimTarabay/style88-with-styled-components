@@ -24,7 +24,7 @@ export const CheckoutHeaderContainer = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
 
-  @media screen and (max-width: 370px){
+  @media screen and (max-width: 380px){
     margin-left:10px;
   }
 `;
@@ -44,7 +44,7 @@ export const HeaderBlockContainer = styled.div`
       width: 12%;
     }
 
-  @media screen and (max-width: 370px) {
+  @media screen and (max-width: 380px) {
       width: 22%;
       font-size: 12px;
       margin-right:10px;
@@ -60,7 +60,7 @@ export const TotalContainer = styled.div`
   margin-left: auto;
   font-size: 36px;
 
-  @media screen and (max-width: 370px){
+  @media screen and (max-width: 380px){
     font-size: 25px;
   }
 `;
@@ -71,7 +71,7 @@ export const WarningContainer = styled.div`
   font-size: 24px;
   color: red;
 
-  @media screen and (max-width: 370px){
+  @media screen and (max-width: 380px){
      font-size: 18px;
   }
 `;
